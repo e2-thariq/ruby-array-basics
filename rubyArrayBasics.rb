@@ -615,3 +615,22 @@ def sortByLength(arr)
 end
 
 sortByLength(['a','abcd','abc','ab'])
+
+
+# 49. Loop an Array. Take the Odd Numbers. Take Greatest Odd Number : Murugan's Task 
+def findOdd(arr)
+    i = 0
+    max_value = 0
+    while i < arr.length
+        if arr[i] % 2 != 0
+            puts "Odd Array :#{arr[i]}"
+            if max_value < arr[i]
+                max_value = arr[i]
+            end
+        end
+        i+=1
+    end
+    puts "Greatest Value : #{max_value}"
+end
+
+findOdd([10,20,33,55,77,99, 209, 201])
