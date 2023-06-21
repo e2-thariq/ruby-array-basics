@@ -301,3 +301,317 @@ def findEvenNumbers(arr)
 end
 
 findEvenNumbers([2,22,34,55,77,99])
+
+
+
+# 30. Write a Ruby program to find the difference between the largest and 
+# smallest values of a given array of integers and length 1 or more.
+# =====================================================
+
+def findBigSmall(arr)
+    puts "Biggest Array : #{arr.max()}"
+    puts "Smallest Array : #{arr.min()}"
+end
+
+findBigSmall([10,20,30,70])
+
+
+# 31. Write a Ruby program to compute the average values of a 
+# given array of except the largest and smallest values. 
+# The array length must be 3 or more.
+# =============================================
+
+def findAverage(arr)
+    sum_of_val = arr.inject(0){|sum, x| sum + x}
+    no_of_val = arr.count
+    average = sum_of_val / no_of_val
+    puts "The Array : #{arr}"
+    puts "The Average : #{average}"
+end
+
+findAverage([1,2,3,4,5,6,7,8,9])
+
+
+# 32. Write a Ruby program to compute the sum of the numbers of a given array except the number 17 and 
+# numbers that come immediately after a 17. Return 0 for an empty array.
+# =============================================
+
+def findSeventeen(arr)
+    sum = arr.inject(0){|sum, x| sum + x}
+    puts "Array : #{arr}"
+    puts "Total : #{sum}"
+
+    if arr [0]  == 17
+        arr[0] = 0
+    elsif arr[1] == 17
+        arr[1] = 0
+    elsif arr[2] == 17
+        arr[2] = 0
+    elsif arr[3] == 17
+        arr[3] = 0
+    elsif arr[4] == 17
+        arr[4] = 0
+    elsif arr[5] == 17
+        arr[5] = 0
+    else
+        puts "Nothing Happens"
+    end
+    sum_of_array = arr.inject(0){|sum, x| sum + x}
+    puts "Total Without Adding 17 :#{sum_of_array}"
+end
+
+findSeventeen([10,20,30,17,40,50])
+
+
+# 33. Write a Ruby program to check whether the sum of all 
+# the 3's of a given array of integers is exactly 9.
+# =====================================
+
+def findThrees(arr)
+
+    if arr[0] && arr[1] && arr[2] == 3
+        puts "First Three places has 3 :#{arr[0] + arr[1] + arr[2]}"
+    elsif arr[0] && arr[2] && arr[3] == 3
+        puts "1st, 3rd & 4th place has 3 :#{arr[0] + arr[2] + arr[3]}"
+    elsif arr[1] && arr[2] && arr[3] == 3
+        puts "1st, 2nd & 3rd place has 3 :#{arr[1] + arr[2] + arr[3]}"
+    elsif arr[0] && arr[1] && arr[3] == 3
+        puts "1st, 2nd & 4th place has 3 :#{arr[0] + arr[1] + arr[3]}"
+    else
+        puts "We dont have 3 3's"
+    end
+
+end
+
+findThrees([3,3,2,1])
+
+
+# 34. Write a Ruby program to check whether the number of 2's 
+# is greater than the number of 5's of a given array of integers.
+# =====================================================
+
+def findTwosFives(arr)
+    if arr.count(2) > arr.count(5)
+        puts "No.2 is Greater"
+    elsif arr.count(5) > arr.count(2)
+        puts "No.5 is Greater"
+    else
+        puts "Both values are not greater"
+    end
+end
+findTwosFives([2,2,2,3,4,5,5,5,5,5])
+
+
+# 35. Write a Ruby program to check whether every element is a 3 or a 5 in a given array of integers.
+# =============================================
+
+def checkEveryElement(arr)
+    i = 0
+    while i <= arr.length
+        if arr[i] != 3 && arr[i] != 5
+            return false
+        else
+            return true
+        end
+        i += 1
+    end
+end
+
+puts checkEveryElement([3,5,3,3])
+
+
+# 36. Write a Ruby program to check whether it contains no 3 or it contains no 5.
+# ==================================================
+
+def checkContainsThree(arr)
+    i = 0
+    while i <= arr.length
+        if arr[i] == 3 
+            return true
+        elsif arr[i] == 5
+            return true
+        else
+            return false
+        end
+        i += 1
+    end
+end
+
+puts checkContainsThree([3,7,3,3])
+puts checkContainsThree([2,8,7,9])
+
+
+# 37. Write a Ruby program to check whether a given value appears everywhere in a given array. 
+# A value is "everywhere" in an array 
+# if it presents for every pair of adjacent elements in the array.
+# ================================================================
+
+def findAdjacent(arr)
+    i = 0
+    while i < arr.length
+        if arr[i] != 3 && arr[i+1] != 3
+            return false
+        else
+            return true
+        end
+        i+=1
+    end
+end
+puts findAdjacent([3,7,3,3])
+puts findAdjacent([8,2,2,7])
+
+
+# 38. Write a Ruby program to check whether a given array contains 
+# a 3 next to a 3 or a 5 next to a 5, but not both.
+# =======================================
+
+def findThreeFive(arr)
+    i = 0
+    while i <= arr.length
+        if arr[i] && arr[i+1] == 3 || arr[i] && arr[i+1] == 5
+            return true
+        else
+            return false
+        end
+        i+=1
+    end
+end
+
+puts findThreeFive([3,3,1,2])
+puts findThreeFive([5,5,2,1])
+puts findThreeFive([1,2,3,4])
+
+
+# 39. Write a Ruby program to check whether a given array of integers contains two 6's next to each other, 
+# or there are two 6's separated by one element, such as {6, 2, 6}.
+# ===================================
+
+def findSix(arr)
+    i = 0
+    while i < arr.length
+        if arr[i] && arr[i+1] == 6 || arr[i] && arr[i+2] == 6
+            return true
+        else
+            return false
+        end
+        i+=1
+    end
+end
+
+puts findSix([6,6,2,3,4])
+puts findSix([6,2,6,2,3,4])
+puts findSix([6,2,3,4,5,6])
+
+
+# 40. Write a Ruby program to check whether there is a 2 
+# in the array with a 3 somewhere later in a given array of integers.
+# =====================================================
+
+def findtwoAndThree(arr)
+    i = 0
+    while i < arr.length
+        if arr[i] && arr[i+1] == 2 && arr[i+4] == 3
+            return true
+        else
+            return false
+        end
+        i+=1
+    end
+end
+
+puts findtwoAndThree([2,2,4,5,3])
+puts findtwoAndThree([2,2,3,5,5])
+
+
+# 41. Write a Ruby program to check whether the value 2 appears in a 
+# given array of integers exactly 2 times, and no 2's are next to each other.
+# ====================================================================
+
+def findTwoTwos(arr)
+    if arr.count(2) == 2
+        return true
+    else
+        return false
+    end
+end
+
+puts findTwoTwos([1,3,2,2,4,5])
+
+
+# 42. Write a Ruby program to convert an array into an index hash.
+# =========================================================
+
+def convertArray_Hash(arr)
+    puts Hash[arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]]
+end
+
+convertArray_Hash([1,2,3,4,5,6])
+
+
+# 43. Write a Ruby program to find most occurred item in a given array.
+# ===================================================
+
+def againArray(arr)
+    no_of_frequency = arr.inject(Hash.new(0)){|sum,x| sum[x] += 1; sum}
+    puts no_of_frequency
+end
+
+againArray([10,20,30,30,40,40,10,10,10])
+
+
+
+# 44. Write a Ruby program to check whether all items are identical in a given array.
+# =============================================================
+
+def findIdentical(arr)
+    i = 0
+    while i <= arr.length
+        if arr[i] == arr[i] 
+            return true
+        else
+            return false
+        end
+        i+=1
+    end
+end
+puts findIdentical([10,20,30])
+puts findIdentical([20,20,20,30])
+
+# 45. Write a Ruby program to search items start with specified string of a given array.
+# ==========================================================
+
+def searchString(arr)
+    puts arr.grep(/^ab/)
+end
+
+searchString(['absolute','abdomen','abs break','abstract','thanos'])
+
+
+# 46. Write a Ruby program to iterate an array starting from the last element.
+# =================================================
+
+def getReverse(arr)
+    puts arr.reverse
+end
+
+getReverse([10,20,30,40,10,10,50,60])
+
+
+# 47. Write a Ruby program to iterate over the first n elements of a given array.
+# =================================================
+
+def iterateArray(arr, x)
+    puts arr[0,x]
+end
+
+iterateArray([1,2,3,4,5,6,7,8,9], 5)
+
+
+# 48. Write a Ruby program to sort a given array of strings by length.
+# ===================================================
+
+def sortByLength(arr)
+    puts arr.sort_by(&:length)
+end
+
+sortByLength(['a','abcd','abc','ab'])
